@@ -8,10 +8,17 @@ const receipe = [];
                 detail_box.innerHTML +=  `<div class= 'receipe_card'> ${i+1} . ${receipe[i]}</div>`
             }
         }
-    
+
+        const receipeinput = document.getElementById('receipe_name');
         function add_receipe(){
-            const receipeinput = document.getElementById('receipe_name');
             receipe.push(receipeinput.value);
 
             receipeinput.value = " ";
+            loadreceipe()
+        }
+
+        function remove_receipe(){
+            const receipeindex = receipe.indexOf(receipeinput.value);
+            receipe.splice(receipeindex , 1);
+            loadreceipe();
         }
