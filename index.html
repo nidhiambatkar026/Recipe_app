@@ -48,16 +48,40 @@
         transform: scale(0.9);
         box-shadow: 0px 0px 2px 2px #00ff00;
     }
+    .receipe_card{
+        border: 3px solid #008000;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 5px 0;
+    }
     
 </style>
 <body>
     <div class="container">
         <h1>Recipe App</h1>
-        <input type="text" class="input_box" placeholder="Enter Receipe Name" required/>
-        <input type="text" class="input_box" placeholder="Enter Receipe Details" required/>
-        <button type="button" class="btn">Add Details</button>
-        <button type="button" class="btn">Load Details</button>
+        <input type="text" class="input_box" placeholder="Enter Receipe Name" id="receipe_name" required/>
+        <button type="button" class="btn" onclick="add_receipe()">Add Details</button>
+        <button type="button" class="btn" onclick="loadreceipe()">Load Details</button>
         <div class="detail_box" id="detail_box"></div>
     </div>
+    <script>
+        const receipe = [ ];
+
+        function loadreceipe(){
+            const detail_box = document.getElementById('detail_box');
+            
+            detail_box.innerHTML= " "
+            for(i=0; i< receipe.length; i++){
+                detail_box.innerHTML +=  `<div class= 'receipe_card'> ${receipe[i]}</div>`
+            }
+        }
+    
+        function add_receipe(){
+            const receipeinput = document.getElementById('receipe_name');
+            receipe.push(receipeinput);
+
+            receipeinput.value = " ";
+        }
+    </script>
 </body>
 </html>
