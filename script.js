@@ -22,14 +22,24 @@ const receipe = [];
 
         const receipeinput = document.getElementById('receipe_name');
         function add_receipe(){
+            if(receipeinput.value === " "){
+                alert("Please Enter Receipe name");
+            }
+            else{
             receipe.push(receipeinput.value);
 
             receipeinput.value = " ";
             loadreceipe()
         }
+    }
 
         function remove_receipe(){
+            if(receipeinput.value === " "){
+                alert("Please Enter Receipe name");
+            }
+            else{
             const receipeindex = receipe.indexOf(receipeinput.value);
             receipe.splice(receipeindex , 1);
             loadreceipe();
+            }
         }
