@@ -1,11 +1,22 @@
 const receipe = [];
 
+        function randomemoji(){
+            const emojis = [
+                '😋' ,'😍' ,'👌', '😉', '😒' , '😣' , '😏','😑', '😮‍💨', '😵‍💫'
+            ];
+            const min = 0; 
+            const max = emojis.length - 1;
+
+            const randomindex = Math.floor(Math.random() * (max - min + 1)) + min;
+            return emojis[randomindex]
+        }
+
         function loadreceipe(){
             const detail_box = document.getElementById('detail_box');
             
             detail_box.innerHTML= " ";
             for(i=0; i< receipe.length; i++){
-                detail_box.innerHTML +=  `<div class= 'receipe_card'> ${i+1} . ${receipe[i]}</div>`
+                detail_box.innerHTML +=  `<div class= 'receipe_card'> ${randomemoji()} ${i+1} . ${receipe[i]}</div>`
             }
         }
 
